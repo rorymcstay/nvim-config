@@ -44,3 +44,12 @@ require("lazy").setup({
     },
   },
 })
+
+require("neotest").setup({
+  adapters = {
+    require("neotest-python")({
+      dap = { justMyCode = false },
+      python = "./venv/bin/python",
+    }),
+  },
+})
