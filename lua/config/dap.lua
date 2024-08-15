@@ -5,7 +5,6 @@ dap.adapters.python = {
   args = { "-m", "debugpy.adapter" },
 }
 
--- vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
 dap.configurations.python = {
   {
     -- The first three options are required by nvim-dap

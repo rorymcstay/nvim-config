@@ -3,9 +3,10 @@
 -- Add any additional options here
 vim.opt.mouse = "i"
 -- Disable autoformat for lua files
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "py" },
-  callback = function()
-    vim.b.autoformat = false
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--  pattern = { "py" },
+--  callback = function()
+--     vim.b.autoformat = false
+--   end,
+-- })
+vim.g.autoformat = false

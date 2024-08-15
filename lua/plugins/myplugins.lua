@@ -1,6 +1,7 @@
 return {
   { "mini.pairs", enabled = false },
   { "codeium.nvim", enabled = true },
+  { "codeium.nvim", enabled = false },
   {
     "linux-cultist/venv-selector.nvim",
     dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
@@ -10,6 +11,7 @@ return {
       -- auto_refresh = false
       dap_enabled = true,
       path = "/home/rory/dev/",
+      parents = 0,
       search_venv_managers = false,
     },
     event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
@@ -46,5 +48,24 @@ return {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
+  },
+  {
+    "kndndrj/nvim-dbee",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    build = function()
+      -- Install tries to automatically detect the install method.
+      -- if it fails, try calling it with one of these parameters:
+      --    "curl", "wget", "bitsadmin", "go"
+      require("dbee").install()
+    end,
+    config = function()
+      require("dbee").setup({
+        sources = {
+          require("dbee.sources").EnvSource:new("DBEE_CONNECTIONS"),
+        },
+      })
+    end,
   },
 }
