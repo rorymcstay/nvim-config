@@ -9,4 +9,4 @@ vim.opt.mouse = "i"
 --     vim.b.autoformat = false
 --   end,
 -- })
-vim.g.autoformat = false
+vim.g.autoformat = true

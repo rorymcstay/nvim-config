@@ -1,6 +1,5 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.coding.codeium",
     "lazyvim.plugins.extras.dap.core",
     "lazyvim.plugins.extras.formatting.black",
     "lazyvim.plugins.extras.lang.clangd",
@@ -14,7 +13,7 @@
     "lazyvim.plugins.extras.test.core"
   ],
   "news": {
-    "NEWS.md": "2123"
+    "NEWS.md": "10960"
   },
-  "version": 2
+  "version": 8
 }
