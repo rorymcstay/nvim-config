@@ -1,7 +1,7 @@
 return {
-  { "mason-org/mason.nvim", version = "^1.0.0" },
+  { "mason-org/mason.nvim" },
   { "sindrets/diffview.nvim", version = "^1.0.0" },
-  { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+  { "mason-org/mason-lspconfig.nvim" },
   { "mini.pairs", enabled = false },
   {
     "nvim-neotest/neotest",
