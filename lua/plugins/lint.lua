@@ -4,6 +4,11 @@ return {
     "BufReadPre",
     "BufNewFile",
   },
+  config = function()
+    local lint = require("lint")
+    error("error on pruprose")
+    lint.linters.mypy.args = { "--config", "pyproject.toml" }
+  end,
   opts = {
     -- Event to trigger linters
     events = { "BufWritePost", "BufReadPost", "InsertLeave" },

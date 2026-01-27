@@ -34,6 +34,7 @@ return {
         -- Iron doesn't set keymaps by default anymore.
         -- You can set them here or manually add keymaps to the functions in iron.core
         -- If the highlight is on, y
+        -- For the available options, check nvim_set_hl
         keymaps = {
           toggle_repl = "<space>rr", -- toggles the repl open and closed.
           -- If repl_open_command is a table as above, then the following keymaps are
@@ -50,7 +51,7 @@ return {
           send_mark = "<space>sm",
           send_code_block = "<space>sb",
           send_code_block_and_move = "<space>sn",
-          mark_motion = "<space>mc",
+          mark_motion = "<space>sm",
           mark_visual = "<space>mc",
           remove_mark = "<space>md",
           cr = "<space>s<cr>",
@@ -58,7 +59,7 @@ return {
           exit = "<space>sq",
           clear = "<space>cl",
         },
-        -- For the available options, check nvim_set_hl
+
         highlight = {
           italic = true,
         },
@@ -69,7 +70,46 @@ return {
       vim.keymap.set("n", "<space>rs", "<cmd>IronRepl<cr>")
       vim.keymap.set("n", "<space>rr", "<cmd>IronRestart<cr>")
       vim.keymap.set("n", "<space>rf", "<cmd>IronFocus<cr>")
-      vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>")
+
+      local map = vim.keymap.set
+      local opts = { noremap = true, silent = true, desc = "Iron REPL" }
+
+      -- Overwrite <leader>s* mappings
+      map(
+        "n",
+        "<leader>sn",
+        iron.send_line,
+        vim.tbl_extend("force", opts, {
+          desc = "Send line to REPL",
+        })
+      )
+
+      map(
+        "v",
+        "<leader>sb",
+        iron.visual_send,
+        vim.tbl_extend("force", opts, {
+          desc = "Send selection to REPL",
+        })
+      )
+
+      map(
+        "n",
+        "<leader>sl",
+        iron.send_file,
+        vim.tbl_extend("force", opts, {
+          desc = "Send file to REPL",
+        })
+      )
+
+      map(
+        "n",
+        "<leader>sm",
+        iron.send_mark,
+        vim.tbl_extend("force", opts, {
+          desc = "Send mark to REPL",
+        })
+      )
     end,
   },
 }
